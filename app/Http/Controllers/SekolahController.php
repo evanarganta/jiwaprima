@@ -7,10 +7,17 @@ use App\Models\Mapel;
 use App\Models\Siswa;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class SekolahController extends Controller
 {
+    public const KELAS_LIST = [
+        'X RPL 1', 'X RPL 2', 'X TKJ 1', 'X TKJ 2', 'X MM 1', 'X MM 2',
+        'XI RPL 1', 'XI RPL 2', 'XI TKJ 1', 'XI TKJ 2', 'XI MM 1', 'XI MM 2',
+        'XII RPL 1', 'XII RPL 2', 'XII TKJ 1', 'XII TKJ 2', 'XII MM 1', 'XII MM 2',
+    ];
+
     public function dashboard(): View
     {
         $stats = [
@@ -33,7 +40,7 @@ class SekolahController extends Controller
         $search = $request->query('q');
         $query = Guru::query();
 
-        if ($search) {
+        if ($search !== null && $search !== '') {
             $query->where('nama', 'like', "%{$search}%")
                 ->orWhere('mapel', 'like', "%{$search}%")
                 ->orWhere('email', 'like', "%{$search}%");
@@ -84,7 +91,7 @@ class SekolahController extends Controller
         $search = $request->query('q');
         $query = Siswa::query();
 
-        if ($search) {
+        if ($search !== null && $search !== '') {
             $query->where('nama', 'like', "%{$search}%")
                 ->orWhere('kelas', 'like', "%{$search}%")
                 ->orWhere('email', 'like', "%{$search}%")
@@ -92,11 +99,7 @@ class SekolahController extends Controller
         }
 
         $siswas = $query->latest()->paginate(8)->withQueryString();
-        $kelasList = [
-            'X RPL 1', 'X RPL 2', 'X TKJ 1', 'X TKJ 2', 'X MM 1', 'X MM 2',
-            'XI RPL 1', 'XI RPL 2', 'XI TKJ 1', 'XI TKJ 2', 'XI MM 1', 'XI MM 2',
-            'XII RPL 1', 'XII RPL 2', 'XII TKJ 1', 'XII TKJ 2', 'XII MM 1', 'XII MM 2',
-        ];
+        $kelasList = self::KELAS_LIST;
 
         return view('sekolah.siswa', compact('siswas', 'search', 'kelasList'));
     }
@@ -105,7 +108,7 @@ class SekolahController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'kelas' => 'required|string|max:100|in:X RPL 1,X RPL 2,X TKJ 1,X TKJ 2,X MM 1,X MM 2,XI RPL 1,XI RPL 2,XI TKJ 1,XI TKJ 2,XI MM 1,XI MM 2,XII RPL 1,XII RPL 2,XII TKJ 1,XII TKJ 2,XII MM 1,XII MM 2',
+            'kelas' => ['required', 'string', 'max:100', Rule::in(self::KELAS_LIST)],
             'email' => 'nullable|email|max:255',
             'alamat' => 'nullable|string|max:500',
         ]);
@@ -119,7 +122,7 @@ class SekolahController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'kelas' => 'required|string|max:100|in:X RPL 1,X RPL 2,X TKJ 1,X TKJ 2,X MM 1,X MM 2,XI RPL 1,XI RPL 2,XI TKJ 1,XI TKJ 2,XI MM 1,XI MM 2,XII RPL 1,XII RPL 2,XII TKJ 1,XII TKJ 2,XII MM 1,XII MM 2',
+            'kelas' => ['required', 'string', 'max:100', Rule::in(self::KELAS_LIST)],
             'email' => 'nullable|email|max:255',
             'alamat' => 'nullable|string|max:500',
         ]);
@@ -142,7 +145,7 @@ class SekolahController extends Controller
         $search = $request->query('q');
         $query = Mapel::query();
 
-        if ($search) {
+        if ($search !== null && $search !== '') {
             $query->where('nama_mapel', 'like', "%{$search}%")
                 ->orWhere('jam', 'like', "%{$search}%");
         }
@@ -179,6 +182,14 @@ class SekolahController extends Controller
     public function destroyMapel(Mapel $mapel): RedirectResponse
     {
         $nama = $mapel->nama_mapel;
+        $guruCount = Guru::where('mapel', $nama)->count();
+
+        if ($guruCount > 0) {
+            return redirect()->route('mapel.index')->withErrors([
+                'error' => "Mata pelajaran [ {$nama} ] tidak dapat dihapus karena sedang diampu oleh {$guruCount} guru.",
+            ]);
+        }
+
         $mapel->delete();
 
         return redirect()->route('mapel.index')->with('success', 'Data Mapel [ '.$nama.' ] berhasil dihapus.');

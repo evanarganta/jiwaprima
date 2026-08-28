@@ -56,7 +56,7 @@
                                         <button class="uk-btn uk-btn-sm" onclick="openEditSiswa({{ json_encode($siswa) }})">
                                             EDIT
                                         </button>
-                                        <form method="POST" action="{{ route('siswa.destroy', $siswa) }}" onsubmit="return confirm('Hapus data siswa {{ $siswa->nama }}?')">
+                                        <form method="POST" action="{{ route('siswa.destroy', $siswa) }}" onsubmit="return confirm('Hapus data siswa ' + {{ json_encode($siswa->nama) }} + '?')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="uk-btn uk-btn-sm uk-btn-delete">
@@ -170,9 +170,17 @@
 
     <script>
         window.openEditSiswa = function(siswa) {
-            document.getElementById('formEditSiswa').action = '/siswa/' + siswa.id;
+            document.getElementById('formEditSiswa').action = '{{ url('siswa') }}/' + siswa.id;
             document.getElementById('editSiswaNama').value = siswa.nama;
-            document.getElementById('editSiswaKelas').value = siswa.kelas;
+            const k = document.getElementById('editSiswaKelas');
+            if (k) {
+                let exists = Array.from(k.options).some(opt => opt.value === siswa.kelas);
+                if (!exists && siswa.kelas) {
+                    const opt = new Option(siswa.kelas, siswa.kelas, true, true);
+                    k.add(opt);
+                }
+                k.value = siswa.kelas;
+            }
             document.getElementById('editSiswaEmail').value = siswa.email || '';
             document.getElementById('editSiswaAlamat').value = siswa.alamat || '';
             openModal('modalEditSiswa');

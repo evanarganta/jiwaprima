@@ -54,7 +54,7 @@
                                         <button class="uk-btn uk-btn-sm" onclick="openEditGuru({{ json_encode($guru) }})">
                                             EDIT
                                         </button>
-                                        <form method="POST" action="{{ route('guru.destroy', $guru) }}" onsubmit="return confirm('Hapus data guru {{ $guru->nama }}?')">
+                                        <form method="POST" action="{{ route('guru.destroy', $guru) }}" onsubmit="return confirm('Hapus data guru ' + {{ json_encode($guru->nama) }} + '?')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="uk-btn uk-btn-sm uk-btn-delete">
@@ -164,9 +164,17 @@
 
     <script>
         window.openEditGuru = function(guru) {
-            document.getElementById('formEditGuru').action = '/guru/' + guru.id;
+            document.getElementById('formEditGuru').action = '{{ url('guru') }}/' + guru.id;
             document.getElementById('editGuruNama').value = guru.nama;
-            document.getElementById('editGuruMapel').value = guru.mapel;
+            const m = document.getElementById('editGuruMapel');
+            if (m) {
+                let exists = Array.from(m.options).some(opt => opt.value === guru.mapel);
+                if (!exists && guru.mapel) {
+                    const opt = new Option(guru.mapel, guru.mapel, true, true);
+                    m.add(opt);
+                }
+                m.value = guru.mapel;
+            }
             document.getElementById('editGuruEmail').value = guru.email;
             openModal('modalEditGuru');
         };

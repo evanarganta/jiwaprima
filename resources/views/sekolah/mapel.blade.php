@@ -54,7 +54,7 @@
                                         <button class="uk-btn uk-btn-sm" onclick="openEditMapel({{ json_encode($mapel) }})">
                                             EDIT
                                         </button>
-                                        <form method="POST" action="{{ route('mapel.destroy', $mapel) }}" onsubmit="return confirm('Hapus mata pelajaran {{ $mapel->nama_mapel }}?')">
+                                        <form method="POST" action="{{ route('mapel.destroy', $mapel) }}" onsubmit="return confirm('Hapus mata pelajaran ' + {{ json_encode($mapel->nama_mapel) }} + '?')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="uk-btn uk-btn-sm uk-btn-delete">
@@ -142,7 +142,7 @@
 
     <script>
         window.openEditMapel = function(mapel) {
-            document.getElementById('formEditMapel').action = '/mapel/' + mapel.id;
+            document.getElementById('formEditMapel').action = '{{ url('mapel') }}/' + mapel.id;
             document.getElementById('editMapelNama').value = mapel.nama_mapel;
             document.getElementById('editMapelJam').value = mapel.jam;
             openModal('modalEditMapel');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JIWAPRIMA</title>
+    <title>@hasSection('title')@yield('title') /// JIWAPRIMA@else JIWAPRIMA@endif</title>
     
     <link rel="preload" as="image" href="{{ asset('images/logo.png') }}" fetchpriority="high">
 
@@ -818,10 +818,10 @@
 
             <footer class="uk-footer">
                 <div>
-                    LARAVEL 13.29.0... OK
+                    JIWAPRIMA // SISTEM INFORMASI SEKOLAH
                 </div>
                 <div>
-                    PHP 8.5.8... READY
+                    TERMINAL STATUS: ONLINE
                 </div>
             </footer>
 
@@ -843,7 +843,7 @@
 
         window.openEditGuru = function(guru) {
             const form = document.getElementById('formEditGuru');
-            if (form) form.action = '/guru/' + guru.id;
+            if (form) form.action = '{{ url('guru') }}/' + guru.id;
             const n = document.getElementById('editGuruNama'); if (n) n.value = guru.nama;
             const m = document.getElementById('editGuruMapel');
             if (m) {
@@ -860,7 +860,7 @@
 
         window.openEditSiswa = function(siswa) {
             const form = document.getElementById('formEditSiswa');
-            if (form) form.action = '/siswa/' + siswa.id;
+            if (form) form.action = '{{ url('siswa') }}/' + siswa.id;
             const n = document.getElementById('editSiswaNama'); if (n) n.value = siswa.nama;
             const k = document.getElementById('editSiswaKelas');
             if (k) {
@@ -878,7 +878,7 @@
 
         window.openEditMapel = function(mapel) {
             const form = document.getElementById('formEditMapel');
-            if (form) form.action = '/mapel/' + mapel.id;
+            if (form) form.action = '{{ url('mapel') }}/' + mapel.id;
             const n = document.getElementById('editMapelNama'); if (n) n.value = mapel.nama_mapel;
             const j = document.getElementById('editMapelJam'); if (j) j.value = mapel.jam;
             openModal('modalEditMapel');
@@ -953,7 +953,9 @@
                         try {
                             const fn = new Function(s.textContent);
                             fn();
-                        } catch (e) {}
+                        } catch (e) {
+                            console.error('Dynamic script execution failed:', e);
+                        }
                     });
                 }
 

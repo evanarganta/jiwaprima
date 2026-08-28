@@ -1,6 +1,6 @@
 # JIWAPRIMA - Sistem Informasi Sekolah
 
-Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbasis web yang dibangun dengan Laravel 12. Sistem ini dirancang untuk mengelola data akademik sekolah secara efisien, responsif, dan interaktif dengan antarmuka bertema retro arcade industrial.
+Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbasis web yang dibangun dengan Laravel 13. Sistem ini dirancang untuk mengelola data akademik sekolah secara efisien, responsif, dan interaktif dengan antarmuka bertema retro arcade industrial.
 
 ---
 
@@ -65,7 +65,7 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 
 ## 🛠️ Persyaratan Sistem
 
-- PHP >= 8.2
+- PHP >= 8.3+
 - Composer >= 2.0
 - MySQL / MariaDB >= 8.0
 - Node.js & NPM (opsional untuk bundling asset)
@@ -76,7 +76,7 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 
 1. **Clone Repositori**:
    ```bash
-   git clone https://github.com/username/jiwaprima.git
+   git clone https://github.com/evanarganta/jiwaprima.git
    cd jiwaprima
    ```
 
@@ -107,8 +107,9 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 
 5. **Jalankan Migrasi & Seeder Database**:
    ```bash
-   php artisan migrate:refresh --seed
+   php artisan migrate --seed
    ```
+   *(Gunakan `php artisan migrate:refresh --seed` jika ingin melakukan reset ulang seluruh database)*.
 
 6. **Jalankan Server Lokal**:
    ```bash
