@@ -49,7 +49,7 @@ class SekolahController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'mapel' => 'required|string|max:255',
+            'mapel' => 'required|string|exists:mapel,nama_mapel|max:255',
             'email' => 'required|email|max:255|unique:guru,email',
         ]);
 
@@ -62,7 +62,7 @@ class SekolahController extends Controller
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'mapel' => 'required|string|max:255',
+            'mapel' => 'required|string|exists:mapel,nama_mapel|max:255',
             'email' => 'required|email|max:255|unique:guru,email,'.$guru->id,
         ]);
 
