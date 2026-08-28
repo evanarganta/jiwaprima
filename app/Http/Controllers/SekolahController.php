@@ -7,6 +7,7 @@ use App\Models\Mapel;
 use App\Models\Siswa;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -174,7 +175,15 @@ class SekolahController extends Controller
             'jam' => 'required|integer|min:1|max:40',
         ]);
 
-        $mapel->update($validated);
+        $oldName = $mapel->nama_mapel;
+        $newName = $validated['nama_mapel'];
+
+        DB::transaction(function () use ($mapel, $validated, $oldName, $newName) {
+            $mapel->update($validated);
+            if ($oldName !== $newName) {
+                Guru::where('mapel', $oldName)->update(['mapel' => $newName]);
+            }
+        });
 
         return redirect()->route('mapel.index')->with('success', 'Data Mapel [ '.$mapel->nama_mapel.' ] berhasil diperbarui.');
     }
