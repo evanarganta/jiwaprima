@@ -65,7 +65,7 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 
 ## 🛠️ Persyaratan Sistem
 
-- PHP >= 8.3+
+- PHP >= 8.3.0 and < 9.0.0 (PHP ^8.3)
 - Composer >= 2.0
 - MySQL / MariaDB >= 8.0
 - Node.js & NPM (opsional untuk bundling asset)

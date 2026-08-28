@@ -121,9 +121,11 @@ class SekolahController extends Controller
 
     public function updateSiswa(Request $request, Siswa $siswa): RedirectResponse
     {
+        $allowedKelas = array_values(array_unique(array_merge(self::KELAS_LIST, [$siswa->kelas])));
+
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
-            'kelas' => ['required', 'string', 'max:100', Rule::in(self::KELAS_LIST)],
+            'kelas' => ['required', 'string', 'max:100', Rule::in($allowedKelas)],
             'email' => 'nullable|email|max:255',
             'alamat' => 'nullable|string|max:500',
         ]);
