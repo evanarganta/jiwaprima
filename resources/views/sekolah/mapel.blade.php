@@ -76,7 +76,7 @@
             </div>
 
             @if($mapels->hasPages())
-                <div style="padding: 14px 20px; border-top: 1px solid var(--uk-dark-gray);">
+                <div style="padding: 14px 20px; border-top: 2px solid var(--uk-white);">
                     {{ $mapels->links('vendor.pagination.ultrakill') }}
                 </div>
             @endif
