@@ -973,6 +973,10 @@
         }
 
         document.addEventListener('click', (e) => {
+            if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+                return;
+            }
+
             const link = e.target.closest('a');
             if (link && link.href && link.origin === window.location.origin && !link.target && !link.hasAttribute('download')) {
                 const url = link.href;
