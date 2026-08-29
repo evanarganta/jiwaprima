@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'DASHBOARD')
 
 @section('content')
     <div class="uk-section-divider">-- DASHBOARD --</div>
@@ -108,7 +108,7 @@
                         @forelse($recentGurus as $g)
                             <tr>
                                 <td style="color: var(--uk-white); font-weight: bold;">{{ $g->nama }}</td>
-                                <td>{{ $g->mapel }}</td>
+                                <td><span style="color: var(--uk-orange);">{{ $g->mapel }}</span></td>
                                 <td style="color: var(--uk-gray);">{{ $g->email }}</td>
                             </tr>
                         @empty

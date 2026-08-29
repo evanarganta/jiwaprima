@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Mata Pelajaran')
+@section('title', 'MATA PELAJARAN')
 
 @section('content')
     <div class="uk-page-header">
-        <div class="uk-section-divider" style="margin-bottom: 0;">-- MATA PELAJARAN --</div>
+        <div class="uk-section-divider" style="margin-bottom: 0;">-- DATA MATA PELAJARAN --</div>
         <button class="uk-btn uk-btn-orange" onclick="openModal('modalAddMapel')">
             + TAMBAH MAPEL
         </button>
