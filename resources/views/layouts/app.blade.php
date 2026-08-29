@@ -818,10 +818,10 @@
 
             <footer class="uk-footer">
                 <div>
-                    JIWAPRIMA // SISTEM INFORMASI SEKOLAH
+                    LARAVEL 13.29.0... OK
                 </div>
                 <div>
-                    TERMINAL STATUS: ONLINE
+                    PHP 8.5.8... READY
                 </div>
             </footer>
 
