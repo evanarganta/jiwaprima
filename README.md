@@ -50,7 +50,7 @@
   </tr>
 </table>
 
-<br><br><img width="100%" alt="gambar" src="https://github.com/user-attachments/assets/475dbd8e-0408-4eb5-94fc-d6e79adc8154" /><br><br>
+<br><br><img width="100%" alt="gambar" src="https://github.com/user-attachments/assets/c310f070-3bc1-4c0f-8c8e-301eb20f29a6" /><br><br>
 
 <h3 align="center">1. Tabel <code>guru</code>.</h3>
 
