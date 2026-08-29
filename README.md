@@ -193,4 +193,4 @@ DB_PASSWORD=</code></pre>
 
    <br><p align="center">Aplikasi dapat diakses melalui peramban web di `http://localhost:8000`.</p>
 
-<br><br><p align="center"><img width="50%" alt="gambar" src="https://github.com/user-attachments/assets/e6d36eac-3144-41b9-b463-794daa5f7c7f" /><br><br><strong>feed us, we will grow.</strong></p><br>
+<br><br><p align="center"><img width="50%" alt="gambar" src="https://github.com/user-attachments/assets/e6d36eac-3144-41b9-b463-794daa5f7c7f" /><br><br>
