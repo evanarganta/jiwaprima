@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@hasSection('title')@yield('title') /// JIWAPRIMA@else JIWAPRIMA@endif</title>
+    <title>@hasSection('title')@yield('title') /// JIWAPRIMA @else JIWAPRIMA @endif</title>
     
     <link rel="preload" as="image" href="{{ asset('images/logo.png') }}" fetchpriority="high">
 
