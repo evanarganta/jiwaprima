@@ -913,14 +913,19 @@
             });
         }
 
+        let activeNavSeq = 0;
+
         async function navigateTo(url, push = true) {
+            const seq = ++activeNavSeq;
             try {
                 const response = await fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+                if (seq !== activeNavSeq) return;
                 if (!response.ok) {
                     window.location.href = url;
                     return;
                 }
                 const html = await response.text();
+                if (seq !== activeNavSeq) return;
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
 
@@ -961,7 +966,9 @@
 
                 initModals();
             } catch (err) {
-                window.location.href = url;
+                if (seq === activeNavSeq) {
+                    window.location.href = url;
+                }
             }
         }
 

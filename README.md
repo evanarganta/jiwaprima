@@ -35,6 +35,7 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 ## 🗄️ Struktur Database
 
 ### 1. Tabel `guru`
+
 | Kolom | Tipe Data | Keterangan |
 |---|---|---|
 | `id` | BigInteger (PK) | Auto Increment |
@@ -44,6 +45,7 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 | `created_at` / `updated_at` | Timestamps | Waktu pencatatan data |
 
 ### 2. Tabel `siswa`
+
 | Kolom | Tipe Data | Keterangan |
 |---|---|---|
 | `id` | BigInteger (PK) | Auto Increment |
@@ -54,10 +56,11 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 | `created_at` / `updated_at` | Timestamps | Waktu pencatatan data |
 
 ### 3. Tabel `mapel`
+
 | Kolom | Tipe Data | Keterangan |
 |---|---|---|
 | `id` | BigInteger (PK) | Auto Increment |
-| `nama_mapel` | String | Nama mata pelajaran |
+| `nama_mapel` | String (Unique) | Nama mata pelajaran |
 | `jam` | Integer | Alokasi jam belajar per minggu |
 | `created_at` / `updated_at` | Timestamps | Waktu pencatatan data |
 
@@ -66,7 +69,7 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 ## 🛠️ Persyaratan Sistem
 
 - PHP >= 8.3.0 and < 9.0.0 (PHP ^8.3)
-- Composer >= 2.0
+- Composer >= 2.2
 - MySQL / MariaDB >= 8.0
 - Node.js & NPM (opsional untuk bundling asset)
 

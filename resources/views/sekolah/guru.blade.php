@@ -95,14 +95,14 @@
                     <div class="uk-modal-body">
                         <div class="uk-form-group">
                             <label class="uk-form-label">NAMA LENGKAP & GELAR</label>
-                            <input type="text" name="nama" class="uk-input" placeholder="contoh: Dr. Hendra Gunawan, M.T" required>
+                            <input type="text" name="nama" class="uk-input" placeholder="contoh: Dr. Hendra Gunawan, M.T" value="{{ old('nama') }}" required>
                         </div>
                         <div class="uk-form-group">
                             <label class="uk-form-label">MATA PELAJARAN (DARI DATABASE MAPEL)</label>
                             <select name="mapel" class="uk-input" required>
-                                <option value="" disabled selected>-- PILIH MATA PELAJARAN --</option>
+                                <option value="" disabled {{ old('mapel') ? '' : 'selected' }}>-- PILIH MATA PELAJARAN --</option>
                                 @forelse($mapelList as $mp)
-                                    <option value="{{ $mp }}">{{ $mp }}</option>
+                                    <option value="{{ $mp }}" @selected(old('mapel') === $mp)>{{ $mp }}</option>
                                 @empty
                                     <option value="" disabled>-- BELUM ADA DATA MAPEL (BUAT DI MENU MAPEL DAHULU) --</option>
                                 @endforelse
@@ -110,7 +110,7 @@
                         </div>
                         <div class="uk-form-group">
                             <label class="uk-form-label">EMAIL RESMI</label>
-                            <input type="email" name="email" class="uk-input" placeholder="contoh: hendra@smkprima.sch.id" required>
+                            <input type="email" name="email" class="uk-input" placeholder="contoh: hendra@smkprima.sch.id" value="{{ old('email') }}" required>
                         </div>
                     </div>
                     <div class="uk-modal-footer">

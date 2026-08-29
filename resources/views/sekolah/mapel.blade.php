@@ -95,11 +95,11 @@
                     <div class="uk-modal-body">
                         <div class="uk-form-group">
                             <label class="uk-form-label">NAMA MATA PELAJARAN</label>
-                            <input type="text" name="nama_mapel" class="uk-input" placeholder="contoh: Pemrograman Berorientasi Objek" required>
+                            <input type="text" name="nama_mapel" class="uk-input" placeholder="contoh: Pemrograman Berorientasi Objek" value="{{ old('nama_mapel') }}" required>
                         </div>
                         <div class="uk-form-group">
                             <label class="uk-form-label">ALOKASI JAM PER MINGGU</label>
-                            <input type="number" name="jam" min="1" max="40" class="uk-input" placeholder="contoh: 4" required>
+                            <input type="number" name="jam" min="1" max="40" class="uk-input" placeholder="contoh: 4" value="{{ old('jam') }}" required>
                         </div>
                     </div>
                     <div class="uk-modal-footer">

@@ -97,24 +97,24 @@
                     <div class="uk-modal-body">
                         <div class="uk-form-group">
                             <label class="uk-form-label">NAMA LENGKAP</label>
-                            <input type="text" name="nama" class="uk-input" placeholder="contoh: Clarissa Aurelia" required>
+                            <input type="text" name="nama" class="uk-input" placeholder="contoh: Clarissa Aurelia" value="{{ old('nama') }}" required>
                         </div>
                         <div class="uk-form-group">
                             <label class="uk-form-label">KELAS</label>
                             <select name="kelas" class="uk-input" required>
-                                <option value="" disabled selected>-- PILIH KELAS --</option>
+                                <option value="" disabled {{ old('kelas') ? '' : 'selected' }}>-- PILIH KELAS --</option>
                                 @foreach($kelasList as $kls)
-                                    <option value="{{ $kls }}">{{ $kls }}</option>
+                                    <option value="{{ $kls }}" @selected(old('kelas') === $kls)>{{ $kls }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="uk-form-group">
                             <label class="uk-form-label">EMAIL SISWA (OPSIONAL)</label>
-                            <input type="email" name="email" class="uk-input" placeholder="contoh: clarissa@siswa.smkprima.sch.id">
+                            <input type="email" name="email" class="uk-input" placeholder="contoh: clarissa@siswa.smkprima.sch.id" value="{{ old('email') }}">
                         </div>
                         <div class="uk-form-group">
                             <label class="uk-form-label">ALAMAT TEMPAT TINGGAL</label>
-                            <textarea name="alamat" rows="2" class="uk-input" placeholder="contoh: Jl. Merdeka No. 45, Bandung"></textarea>
+                            <textarea name="alamat" rows="2" class="uk-input" placeholder="contoh: Jl. Merdeka No. 45, Bandung">{{ old('alamat') }}</textarea>
                         </div>
                     </div>
                     <div class="uk-modal-footer">
