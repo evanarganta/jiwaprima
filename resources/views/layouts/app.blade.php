@@ -167,7 +167,7 @@
         .uk-main {
             padding: 28px 24px;
             flex-grow: 1;
-            max-width: 1500px;
+            max-width: 1800px;
             width: 100%;
             margin: 0 auto;
         }

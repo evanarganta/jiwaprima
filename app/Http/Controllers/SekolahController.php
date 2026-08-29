@@ -29,7 +29,7 @@ class SekolahController extends Controller
             'total_kelas' => Siswa::distinct('kelas')->count('kelas'),
         ];
 
-        $recentGurus = Guru::latest()->take(5)->get();
+        $recentGurus = Guru::latest()->take(6)->get();
         $recentSiswas = Siswa::latest()->take(7)->get();
         $recentMapels = Mapel::latest()->take(5)->get();
 
