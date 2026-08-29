@@ -163,7 +163,6 @@
 
 <br><h2 align="center">Instalasi</h2>
 
-<div align="center">
 <h3>1. Clone.</h3>
 <pre><code>git clone https://github.com/evanarganta/jiwaprima.git
 cd jiwaprima
@@ -173,10 +172,8 @@ cd jiwaprima
    <pre><code>composer install</code></pre>
 
 <h3>3. Konfigurasi environment.</h3>
-Salin file konfigurasi environment:<br><br>
 <pre><code>cp .env.example .env</code></pre>
 
-   <br>Sesuaikan konfigurasi database pada file `.env`:<br>
    <pre><code>DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -194,5 +191,6 @@ DB_PASSWORD=</code></pre>
 <h3>6. Jalankan server.</h3>
 <pre><code>php artisan serve</code></pre>
 
-   <br>Aplikasi dapat diakses melalui peramban web di `http://localhost:8000`.
-   </div>
+   <br><p align="center">Aplikasi dapat diakses melalui peramban web di `http://localhost:8000`.</p>
+
+<br><br><p align="center"><img width="50%" alt="gambar" src="https://github.com/user-attachments/assets/e6d36eac-3144-41b9-b463-794daa5f7c7f" /></p><br>
