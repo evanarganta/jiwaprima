@@ -1,4 +1,4 @@
-<h2 align="center">Sistem Informasi Sekolah</h2><br><p align="center"><img src="public/images/logo.png" alt="jiwaprima" width="80%"></p>
+<p align="center"><img src="public/images/logo.png" alt="jiwaprima" width="90%"></p>
 
 <br>
 
@@ -13,7 +13,7 @@
 
 <br>
 
-<p align="center">Sistem informasi manajemen data sekolah berbasis web yang dibangun dengan Laravel 13, dirancang untuk mengelola data akademik sekolah dengan antarmuka bertema retro arcade industrial yang terinspirasi dari tampilan antarmuka game ULTRAKILL.</p><br>
+<p align="center">Sebuah mini project sistem informasi manajemen data sekolah berbasis web yang dibangun dengan Laravel 13, dirancang untuk mengelola data akademik sekolah dengan antarmuka bertema retro arcade industrial yang terinspirasi dari tampilan antarmuka game ULTRAKILL.</p><br>
 
 <table align="center">
   <tr>
