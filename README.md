@@ -1,4 +1,4 @@
-# JIWAPRIMA - Sistem Informasi Sekolah
+[<img src="public/images/logo.png" alt="jiwaprima" width="100%">](public/images/logo.png)
 
 Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbasis web yang dibangun dengan Laravel 13. Sistem ini dirancang untuk mengelola data akademik sekolah secara efisien, responsif, dan interaktif dengan antarmuka bertema retro arcade industrial.
 
@@ -70,8 +70,8 @@ Sistem Informasi Manajemen Data Sekolah (Guru, Siswa, dan Mata Pelajaran) berbas
 
 - PHP >= 8.3.0 and < 9.0.0 (PHP ^8.3)
 - Composer >= 2.2
-- MySQL / MariaDB >= 8.0
-- Node.js & NPM (opsional untuk bundling asset)
+- MySQL >= 8.0 atau MariaDB >= 10.3
+- Node.js & NPM
 
 ---
 
