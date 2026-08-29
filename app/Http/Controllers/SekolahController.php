@@ -161,7 +161,7 @@ class SekolahController extends Controller
     public function storeMapel(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'nama_mapel' => 'required|string|max:255',
+            'nama_mapel' => ['required', 'string', 'max:255', Rule::unique('mapel', 'nama_mapel')],
             'jam' => 'required|integer|min:1|max:40',
         ]);
 
@@ -173,7 +173,7 @@ class SekolahController extends Controller
     public function updateMapel(Request $request, Mapel $mapel): RedirectResponse
     {
         $validated = $request->validate([
-            'nama_mapel' => 'required|string|max:255',
+            'nama_mapel' => ['required', 'string', 'max:255', Rule::unique('mapel', 'nama_mapel')->ignore($mapel->id)],
             'jam' => 'required|integer|min:1|max:40',
         ]);
 
@@ -193,15 +193,26 @@ class SekolahController extends Controller
     public function destroyMapel(Mapel $mapel): RedirectResponse
     {
         $nama = $mapel->nama_mapel;
-        $guruCount = Guru::where('mapel', $nama)->count();
 
-        if ($guruCount > 0) {
+        $deleted = DB::transaction(function () use ($mapel, $nama) {
+            $guruCount = Guru::where('mapel', $nama)->count();
+
+            if ($guruCount > 0) {
+                return false;
+            }
+
+            $mapel->delete();
+
+            return true;
+        });
+
+        if (! $deleted) {
+            $guruCount = Guru::where('mapel', $nama)->count();
+
             return redirect()->route('mapel.index')->withErrors([
                 'error' => "Mata pelajaran [ {$nama} ] tidak dapat dihapus karena sedang diampu oleh {$guruCount} guru.",
             ]);
         }
-
-        $mapel->delete();
 
         return redirect()->route('mapel.index')->with('success', 'Data Mapel [ '.$nama.' ] berhasil dihapus.');
     }
