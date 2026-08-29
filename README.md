@@ -1,4 +1,4 @@
-<p align="center"><img src="public/images/logo.png" alt="jiwaprima" width="90%"></p>
+<br><p align="center"><img src="public/images/logo.png" alt="jiwaprima" width="90%"></p>
 
 <br>
 
