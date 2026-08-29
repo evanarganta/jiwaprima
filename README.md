@@ -161,7 +161,7 @@
   </tr>
 </table>
 
-<br><br><img width="100%" alt="gambar" src="https://github.com/user-attachments/assets/19178d53-fc7e-4962-960c-51fcc9d704be" /><br><br><p align="center">Berikut adalah langkah-langkah untuk menmasang dan menjalankan proyek ini.</p>
+<br><br><img width="100%" alt="gambar" src="https://github.com/user-attachments/assets/19178d53-fc7e-4962-960c-51fcc9d704be" /><br><br><p align="center">Berikut adalah langkah-langkah untuk memasang dan menjalankan proyek ini.</p>
 
 <h3>1. Clone.</h3>
 <pre><code>git clone https://github.com/evanarganta/jiwaprima.git
