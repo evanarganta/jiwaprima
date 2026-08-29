@@ -191,6 +191,6 @@ DB_PASSWORD=</code></pre>
 <h3>6. Jalankan server.</h3>
 <pre><code>php artisan serve</code></pre>
 
-   <br><p align="center">Aplikasi dapat diakses melalui peramban web di `http://localhost:8000`.</p>
+   <br><p align="center">Aplikasi dapat diakses melalui peramban web di `http://localhost:8000` atau `http://127.0.0.1:8000`.</p>
 
 <br><br><p align="center"><img width="50%" alt="gambar" src="https://github.com/user-attachments/assets/e6d36eac-3144-41b9-b463-794daa5f7c7f" /><br><br>
