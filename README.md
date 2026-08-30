@@ -3,10 +3,10 @@
 <br>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Laravel-13-FF2D20?style=flat&logo=laravel&logoColor=white" alt="Laravel 13">
   <img src="https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=flat&logo=php&logoColor=white" alt="PHP 8.3+">
   <img src="https://img.shields.io/badge/Composer-2.2%2B-885630?style=flat&logo=composer&logoColor=white" alt="Composer 2.2+">
   <img src="https://img.shields.io/badge/MySQL-8.0%2B-4479A1?style=flat&logo=mysql&logoColor=white" alt="MySQL 8.0+">
-  <img src="https://img.shields.io/badge/MariaDB-10.3%2B-003545?style=flat&logo=mariadb&logoColor=white" alt="MariaDB 10.3+">
   <img src="https://img.shields.io/badge/Node.js-%26_NPM-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js & NPM">
   <img src="https://img.shields.io/badge/License-MIT-blue?style=flat" alt="MIT License">
 </p>
